@@ -14,7 +14,8 @@ depthArray1=[]
 depthArray2=[]
 depthArray3=[]
 depthArray4=[]
-depthIncreases=0
+#there's three comparisons made before the arrays are filled so this is a workaround that works i guess?
+depthIncreases=-3
 
 for line in depthFile:
     currentDepth = int(line)
