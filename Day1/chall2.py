@@ -30,7 +30,7 @@ for line in depthFile:
 
     if avg(depthArray4) < avg(depthArray3):
         depthIncreases += 1
-        print (depthIncreases)
+        #print (depthIncreases)
         #print (depthArray4)
         #print (depthArray3)
 
