@@ -1,0 +1,1 @@
+file = open("Day4/input.txt", "r")
