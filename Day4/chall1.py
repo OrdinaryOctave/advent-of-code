@@ -4,10 +4,10 @@ def checkSolvedCard(cardMarks):
             return True
         if cardMarks[0][i] & cardMarks[1][i] & cardMarks [2][i] & cardMarks [3][i] & cardMarks [4][i]:
             return True
-    if cardMarks [0][0] & cardMarks [1][1] & cardMarks [2][2] & cardMarks [3][3] & cardMarks [4][4]:
-        return True
-    if cardMarks [4][0] & cardMarks [3][1] & cardMarks [2][2] & cardMarks [1][3] & cardMarks [0][4]:
-        return True
+    #if cardMarks [0][0] & cardMarks [1][1] & cardMarks [2][2] & cardMarks [3][3] & cardMarks [4][4]:
+    #    return True
+    #if cardMarks [4][0] & cardMarks [3][1] & cardMarks [2][2] & cardMarks [1][3] & cardMarks [0][4]:
+    #    return True
     return False
 
 def findFirstCard(orderCalled, bingoCards):
