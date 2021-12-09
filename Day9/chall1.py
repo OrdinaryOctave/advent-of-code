@@ -8,12 +8,13 @@ for line in heightMapStrings:
         try:
             lineArray.append(int(line[i]))
         except:
-            print("hi")
+            pass
     heightMap.append(lineArray)
+    print(len(lineArray))
 
 totalRisk = 0
 for i in range(len(heightMap)):
-    for j in range(len(heightMap[i])-1):
+    for j in range(len(heightMap[i])):
         lowPoint = True
         if j>0:
             if heightMap[i][j]>=heightMap[i][j-1]:
