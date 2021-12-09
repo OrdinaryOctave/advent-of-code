@@ -10,7 +10,6 @@ for line in heightMapStrings:
         except:
             pass
     heightMap.append(lineArray)
-    print(len(lineArray))
 
 totalRisk = 0
 for i in range(len(heightMap)):
