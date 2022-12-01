@@ -10,17 +10,18 @@ with open(cookie_file) as f:
 
 r = requests.get(f"https://adventofcode.com/{today.year}/day/{today.day}/input", cookies={"session": session_cookie})
 
-inputFilePath = "inputs/day"+str(today.day)
+inputFilePath = f"inputs/day{today.day}"
 
 with open(inputFilePath, "w") as f:
     f.write(r.text)
 
-solutionFilePath = "solutions/day"+str(today.day)+".py"
+solutionFilePath = f"solutions/day{today.day}.py"
 
-boilerplateSolution = """with open('inputs/day"""+str(today.day)+"""') as f:
+boilerplateSolution = f"""with open('inputs/day{today.day}') as f:
     input = f.read()
 
 """
+
 try:
     with open(solutionFilePath, "x") as f:
         f.write(boilerplateSolution)
