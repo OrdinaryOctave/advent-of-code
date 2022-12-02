@@ -2,11 +2,15 @@ import datetime
 import requests
 
 cookie_file = "sessionCookie.txt"
+useragent_file = "useragent.txt"
 
 now = datetime.datetime.now()
 
 with open(cookie_file) as f:
     session_cookie = f.read()
+
+with open(useragent_file) as f:
+    useragent = f.read()
 
 if (now.hour<5):
     now = now - datetime.timedelta(days = 1)
@@ -17,7 +21,7 @@ inputFilePath = f"inputs/day{now.day}"
 try:
     with open(inputFilePath, "x") as f:
         print("Making request for input:")
-        r = requests.get(f"https://adventofcode.com/{now.year}/day/{now.day}/input", cookies={"session": session_cookie})
+        r = requests.get(f"https://adventofcode.com/{now.year}/day/{now.day}/input", cookies={"session": session_cookie}, headers={"User-Agent": useragent})
         print("Saving input to file:")
         f.write(r.text)
 except:
