@@ -5,6 +5,7 @@ import requests
 cookie_file = "sessionCookie.txt"
 useragent_file = "useragent.txt"
 now = datetime.datetime.now()
+loadDay = now.day
 
 if (now.hour==4 and now.minute>55):
     awakeTime = datetime.datetime.combine(datetime.date.today(), datetime.time(hour = 5, second=5))
@@ -12,10 +13,10 @@ if (now.hour==4 and now.minute>55):
     print(f"not yet 5am, sleeping for {sleepTime} seconds until 5am")
     sleep(sleepTime)
 elif (now.hour<5):
-    now = now - datetime.timedelta(days = 1)
+    loadDay -= 1
     print("Not 4:50am yet, loading previous day's challenge")
 
-inputFilePath = f"inputs/day{now.day}"
+inputFilePath = f"inputs/day{loadDay}"
 
 try:
     with open(inputFilePath, "x") as f:
@@ -24,28 +25,27 @@ try:
         with open(useragent_file) as g:
             useragent = g.read()
         print("Making request for input:")
-        r = requests.get(f"https://adventofcode.com/{now.year}/day/{now.day}/input", cookies={"session": session_cookie}, headers={"User-Agent": useragent})
+        r = requests.get(f"https://adventofcode.com/{now.year}/day/{loadDay}/input", cookies={"session": session_cookie}, headers={"User-Agent": useragent})
         print("Saving input to file:")
         f.write(r.text)
 except:
     print("Input file already exists for today, skipping input load")
 
-solutionFilePath = f"solutions/day{now.day}.py"
+solutionFilePath = f"solutions/day{loadDay}.py"
 
+now = datetime.datetime.now()
 templateSolution = f"""#input loaded and ready to go at {now.time().strftime('%H:%M:%S')}
 
-with open('inputs/day{now.day}') as f:
+with open('inputs/day{loadDay}') as f:
     input = f.read()
 
 """
 
 try:
     with open(solutionFilePath, "x") as f:
-        print("Creating boilerplate solution:")
+        print("Creating template solution:")
         f.write(templateSolution)
 except:
     print("Solution file already exists for today, skipping solution file create")
 
-now = datetime.datetime.now()
 print(f"Loading complete\nStarting today's challenge at {now.time().strftime('%H:%M:%S')}\nGood luck!")
-
