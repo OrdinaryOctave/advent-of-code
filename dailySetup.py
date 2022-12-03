@@ -29,7 +29,9 @@ except:
 
 solutionFilePath = f"solutions/day{now.day}.py"
 
-boilerplateSolution = f"""with open('inputs/day{now.day}') as f:
+templateSolution = f"""#input loaded and ready to go at {now.time().strftime('%H:%M:%S')}
+
+with open('inputs/day{now.day}') as f:
     input = f.read()
 
 """
@@ -37,7 +39,7 @@ boilerplateSolution = f"""with open('inputs/day{now.day}') as f:
 try:
     with open(solutionFilePath, "x") as f:
         print("Creating boilerplate solution:")
-        f.write(boilerplateSolution)
+        f.write(templateSolution)
 except:
     print("Solution file already exists for today, skipping solution file create")
 
