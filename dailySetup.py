@@ -1,25 +1,28 @@
 import datetime
+from time import sleep
 import requests
 
 cookie_file = "sessionCookie.txt"
 useragent_file = "useragent.txt"
-
 now = datetime.datetime.now()
 
-with open(cookie_file) as f:
-    session_cookie = f.read()
-
-with open(useragent_file) as f:
-    useragent = f.read()
-
-if (now.hour<5):
+if (now.hour==4 and now.minute>55):
+    awakeTime = datetime.datetime.combine(datetime.date.today(), datetime.time(hour = 5, second=5))
+    sleepTime = (awakeTime-now).total_seconds()
+    print(f"not yet 5am, sleeping for {sleepTime} seconds until 5am")
+    sleep(sleepTime)
+elif (now.hour<5):
     now = now - datetime.timedelta(days = 1)
-    print("Not 5am yet, loading previous day's challenge")
+    print("Not 4:50am yet, loading previous day's challenge")
 
 inputFilePath = f"inputs/day{now.day}"
 
 try:
     with open(inputFilePath, "x") as f:
+        with open(cookie_file) as g:
+            session_cookie = g.read()
+        with open(useragent_file) as g:
+            useragent = g.read()
         print("Making request for input:")
         r = requests.get(f"https://adventofcode.com/{now.year}/day/{now.day}/input", cookies={"session": session_cookie}, headers={"User-Agent": useragent})
         print("Saving input to file:")
