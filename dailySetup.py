@@ -14,9 +14,10 @@ if (now.hour==4 and now.minute>55):
     sleep(sleepTime)
 elif (now.hour<5):
     loadDay -= 1
-    print("Not 4:50am yet, loading previous day's challenge")
+    print("Not 4:55am yet, loading previous day's challenge")
 
 inputFilePath = f"inputs/day{loadDay}"
+solutionFilePath = f"solutions/day{loadDay}.py"
 
 try:
     with open(inputFilePath, "x") as f:
@@ -30,8 +31,6 @@ try:
         f.write(r.text)
 except:
     print("Input file already exists for today, skipping input load")
-
-solutionFilePath = f"solutions/day{loadDay}.py"
 
 now = datetime.datetime.now()
 templateSolution = f"""#input loaded and ready to go at {now.time().strftime('%H:%M:%S')}
