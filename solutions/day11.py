@@ -1,5 +1,4 @@
 #input loaded and ready to go at 15:50:30
-from copy import deepcopy
 
 class Monkey:
     def __init__(self, items, op, testOperand, ifTrue, ifFalse):
