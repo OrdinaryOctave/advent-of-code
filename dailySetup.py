@@ -10,6 +10,10 @@ if (now.hour<5):
     loadDay -= 1
     print("Not 5am yet, loading previous day's challenge")
 
+if(loadDay>25 or now.month<12):
+    print("Advent of code isn't active at the moment, exiting")
+    exit()
+
 inputFilePath = f"inputs/day{loadDay}"
 solutionFilePath = f"solutions/day{loadDay}.py"
 
