@@ -1,4 +1,6 @@
 #input loaded and ready to go at 05:00:03
+# Part 2 could be significantly optimised by starting at the goal
+# and running a modified search (allow move if target >= height-1) to any of the height 1 positions
 
 def getAllowedMoves(pos, terrain):
     allowedMoves = []
