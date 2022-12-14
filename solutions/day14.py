@@ -1,6 +1,4 @@
 #input loaded and ready to go at 05:02:28
-# This solution is horribly unoptimised but it gets the right answer eventually
-# Part 2 took almost 29 mins to solve
 
 def addRock(rock: list, occupied: list):
     if rock[0] not in occupied:
@@ -43,7 +41,9 @@ def addSand(lowestRock: int, occupied: list):
             return True
     return False
 
-def addSandPartTwo(floor: int,occupied: list):
+# Function unused - keeping for posterity
+# Took almost 29 mins to solve part 2 using this function
+def addSandPartTwo(floor: int, occupied: list):
     sandPos = (500, 0)
     sandCount = 0
     while True:
@@ -64,7 +64,20 @@ def addSandPartTwo(floor: int,occupied: list):
             if sandPos == (500, 0):
                 return sandCount
             sandPos = (500, 0)
-            
+
+# new solution to part 2, much more efficient
+def findMaxSandLocations(floor: int, occupied: list):
+    visitLocations = [(500, 0)]
+    sandCount = 0
+    while len(visitLocations) != 0:
+        location = visitLocations.pop(0)
+        sandCount += 1
+        if location[1]+1 != floor:
+            moves = [(location[0], location[1]+1), (location[0]-1, location[1]+1), (location[0]+1, location[1]+1)]
+            for move in moves:
+                if move not in visitLocations and move not in occupied:
+                    visitLocations.append(move)
+    return sandCount
 
 with open('inputs/day14') as f:
     input = f.read().rstrip()
@@ -79,11 +92,16 @@ maxY = 0
 for point in occupied:
     maxY = max(point[1], maxY)
 
+# new part 2 solution - has to run before part 1 because addSand modifies the occupied list
+floorLevel = maxY + 2
+maxSandCount = findMaxSandLocations(floorLevel, occupied)
+
 sandCount = 0
 while addSand(maxY, occupied):
     sandCount += 1
     
 print(sandCount)
+print(maxSandCount)
 
-floorLevel = maxY + 2
-print(addSandPartTwo(floorLevel, occupied)+sandCount)
+# Original part 2 solution - took almost 29 mins to solve both parts
+#print(addSandPartTwo(floorLevel, occupied)+sandCount)
