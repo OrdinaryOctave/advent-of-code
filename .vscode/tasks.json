@@ -8,9 +8,6 @@
             "type": "shell",
             "command": "python dailySetup.py",
             "problemMatcher": [],
-            "runOptions": {
-                "runOn": "folderOpen"
-            },
             "presentation": {
                 "close": true
             }
