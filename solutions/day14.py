@@ -65,7 +65,7 @@ def addSandPartTwo(floor: int, occupied: list):
                 return sandCount
             sandPos = (500, 0)
 
-# new solution to part 2, much more efficient
+# new solution to part 2, much more efficient (BFS for all possible sand locations)
 def findMaxSandLocations(floor: int, occupied: list):
     visitLocations = [(500, 0)]
     sandCount = 0
