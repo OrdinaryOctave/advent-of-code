@@ -4,13 +4,15 @@ import requests
 cookie_file = "sessionCookie.txt"
 useragent_file = "useragent.txt"
 now = datetime.datetime.now()
-loadDay = now.day
 
-if (now.hour<5):
+loadDay = 14
+loadYear = now.year
+
+if now.hour<5:
     loadDay -= 1
     print("Not 5am yet, loading previous day's challenge")
 
-if(loadDay>25 or now.month<12):
+if loadDay>25 or (now.month<12 and loadYear == now.year):
     print("Advent of code isn't active at the moment, exiting")
     exit()
 
@@ -24,7 +26,7 @@ try:
         with open(useragent_file) as g:
             useragent = g.read()
         print("Making request for input:")
-        r = requests.get(f"https://adventofcode.com/{now.year}/day/{loadDay}/input", cookies={"session": session_cookie}, headers={"User-Agent": useragent})
+        r = requests.get(f"https://adventofcode.com/{loadYear}/day/{loadDay}/input", cookies={"session": session_cookie}, headers={"User-Agent": useragent})
         print("Saving input to file:")
         f.write(r.text)
 except:
