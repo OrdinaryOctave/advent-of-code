@@ -17,8 +17,8 @@ if loadDay>25 or (loadYear == now.year and (now.month<12 or loadDay > now.day)):
     print(f"Specified day ({loadYear} day {loadDay}) not valid, exiting")
     exit()
 
-inputFilePath = f"inputs/day{loadDay}"
-solutionFilePath = f"solutions/day{loadDay}.py"
+inputFilePath = f"{loadYear}/inputs/day{loadDay}"
+solutionFilePath = f"{loadYear}/solutions/day{loadDay}.py"
 
 try:
     with open(inputFilePath, "x") as f:
@@ -36,7 +36,7 @@ except:
 now = datetime.datetime.now()
 templateSolution = f"""# input loaded and ready to go at {now.time().strftime('%H:%M:%S')}
 
-with open('inputs/day{loadDay}') as f:
+with open('{inputFilePath}') as f:
     input = f.read()
 
 """
