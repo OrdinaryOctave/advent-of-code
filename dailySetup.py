@@ -5,7 +5,7 @@ cookie_file = "sessionCookie.txt"
 useragent_file = "useragent.txt"
 now = datetime.datetime.now()
 
-loadDay = 14
+loadDay = now.year
 loadYear = now.year
 
 if now.hour<5:
