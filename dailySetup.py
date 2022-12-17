@@ -5,15 +5,16 @@ cookie_file = "sessionCookie.txt"
 useragent_file = "useragent.txt"
 now = datetime.datetime.now()
 
+# Edit these before running to load previous days/years
 loadDay = now.day
 loadYear = now.year
 
-if now.hour<5:
+if now.hour<5 and loadDay == now.day:
     loadDay -= 1
     print("Not 5am yet, loading previous day's challenge")
 
-if loadDay>25 or (now.month<12 and loadYear == now.year):
-    print("Advent of code isn't active at the moment, exiting")
+if loadDay>25 or (loadYear == now.year and (now.month<12 or loadDay > now.day)):
+    print(f"Specified day ({loadYear} day {loadDay}) not valid, exiting")
     exit()
 
 inputFilePath = f"inputs/day{loadDay}"
@@ -25,15 +26,15 @@ try:
             session_cookie = g.read()
         with open(useragent_file) as g:
             useragent = g.read()
-        print("Making request for input:")
+        print(f"Making request for {loadYear} day {loadDay} input:")
         r = requests.get(f"https://adventofcode.com/{loadYear}/day/{loadDay}/input", cookies={"session": session_cookie}, headers={"User-Agent": useragent})
-        print("Saving input to file:")
+        print(f"Saving input to file ({inputFilePath}):")
         f.write(r.text.rstrip())
 except:
-    print("Input file already exists for today, skipping input load")
+    print(f"Input file already exists for {loadYear} day {loadDay}, skipping input load")
 
 now = datetime.datetime.now()
-templateSolution = f"""#input loaded and ready to go at {now.time().strftime('%H:%M:%S')}
+templateSolution = f"""# input loaded and ready to go at {now.time().strftime('%H:%M:%S')}
 
 with open('inputs/day{loadDay}') as f:
     input = f.read()
@@ -42,9 +43,9 @@ with open('inputs/day{loadDay}') as f:
 
 try:
     with open(solutionFilePath, "x") as f:
-        print("Creating template solution:")
+        print(f"Creating template solution ({solutionFilePath}):")
         f.write(templateSolution)
 except:
-    print("Solution file already exists for today, skipping solution file create")
+    print(f"Solution file already exists for {loadYear} day {loadDay}, skipping solution file create")
 
 print(f"Loading complete\nStarting today's challenge at {now.time().strftime('%H:%M:%S')}\nGood luck!")
