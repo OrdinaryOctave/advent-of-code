@@ -70,8 +70,8 @@ def twoAgentMaxPressureRelease(agent1Valve: Valve, agent2Valve: Valve, agent1Dow
                     maxPressureRelease = max(maxPressureRelease, valvePressureReleased)
     return maxPressureRelease
     
-with open('inputs/day16') as f:
-    input = f.read().rstrip()
+with open('2022/inputs/day16') as f:
+    input = f.read()
 
 lines = input.split('\n')
 valves = {}

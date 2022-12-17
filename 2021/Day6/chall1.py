@@ -1,4 +1,4 @@
-intitialFile = open("Day6\input.txt","r")
+intitialFile = open("2021/inputs/day6","r")
 fishStrings = intitialFile.readline()
 fishStrings = fishStrings.split(",")
 

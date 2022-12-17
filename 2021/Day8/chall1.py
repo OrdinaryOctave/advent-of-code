@@ -1,4 +1,4 @@
-file = open("Day8/input.txt","r")
+file = open("2021/inputs/day8","r")
 values = file.readlines()
 outputs = []
 for value in values:

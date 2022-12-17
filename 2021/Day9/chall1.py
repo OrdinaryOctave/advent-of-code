@@ -1,4 +1,4 @@
-file = open ("Day9/input.txt","r")
+file = open ("2021/inputs/day8","r")
 heightMapStrings = file.readlines()
 
 heightMap=[]

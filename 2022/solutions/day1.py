@@ -3,8 +3,8 @@ Calories2 = 0
 Calories3 = 0
 tempCalories = 0
 
-with open("inputs/day1") as f:
-    nextLine = f.readline();
+with open("2022/inputs/day1") as f:
+    nextLine = f.readline()
     while (nextLine != ""):
         if (nextLine == "\n"):
             if (tempCalories > maxCalories):

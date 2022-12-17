@@ -1,7 +1,7 @@
 #input loaded and ready to go at 14:05:53
 
 
-with open('inputs/day6') as f:
+with open('2022/inputs/day6') as f:
     
     buffer = []
     readIndex = 0

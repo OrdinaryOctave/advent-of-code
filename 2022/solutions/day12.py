@@ -39,8 +39,8 @@ def getMoveCount(startPos, goal, terrain, maxSteps):
         toVisit = toVisitTemp
                 
 
-with open('inputs/day12') as f:
-    input = f.read().rstrip()
+with open('2022/inputs/day12') as f:
+    input = f.read()
 
 lines = input.split('\n')
 

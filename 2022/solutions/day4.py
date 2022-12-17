@@ -3,7 +3,7 @@
 containedAssignments = 0
 overlappingPairs = 0
 
-with open('inputs/day4') as f:
+with open('2022/inputs/day4') as f:
     input=f.readline().rstrip()
     while (input != ""):
         pairs = input.split(",")

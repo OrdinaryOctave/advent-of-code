@@ -3,8 +3,8 @@
 # I have no clue if this works with other inputs but it feels like it only works
 # because of some weird quirk of my input
 
-with open('inputs/day17') as f:
-    input = f.read().rstrip()
+with open('2022/inputs/day17') as f:
+    input = f.read()
 
 wind = [*input]
 

@@ -1,4 +1,4 @@
-depthFile = open("Day1/input.txt", "r")
+depthFile = open("2021/inputs/day1", "r")
 
 depthIncreases = 0
 previousDepth = int(depthFile.readline())

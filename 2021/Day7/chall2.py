@@ -1,6 +1,6 @@
 import numpy as np
 
-crabsFile = open("Day7/input.txt","r")
+crabsFile = open("2021/inputs/day7","r")
 crabStrings = crabsFile.readline().split(",")
 crabs = []
 for crab in crabStrings:

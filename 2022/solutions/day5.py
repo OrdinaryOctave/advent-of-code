@@ -2,12 +2,12 @@
 
 from collections import deque
 
-with open('inputs/day5') as f:
+with open('2022/inputs/day5') as f:
     setupStack = deque()
-    line = f.readline().rstrip("\n")
+    line = f.readline().rstrip('\n')
     while (line != ""):
         setupStack.append(line)
-        line = f.readline().rstrip("\n")
+        line = f.readline().rstrip('\n')
     
     stacks = []
     for i in range(9):

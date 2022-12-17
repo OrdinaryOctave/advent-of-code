@@ -68,11 +68,10 @@ def getViewingScore(row, column):
     
 
 
-with open('inputs/day8') as f:
+with open('2022/inputs/day8') as f:
     input = f.read()
 
 rows = input.split('\n')
-rows.pop(-1)
 trees = [None] * len(rows)
 for i in range(len(rows)):
     trees[i] = [*rows[i]]

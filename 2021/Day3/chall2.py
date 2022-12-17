@@ -1,4 +1,4 @@
-report = open("Day3/input.txt","r")
+report = open("2021/inputs/day3","r")
 oxygenRating = report.readlines()
 carbonRating = oxygenRating.copy()
 

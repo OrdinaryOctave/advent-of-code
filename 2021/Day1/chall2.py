@@ -7,7 +7,7 @@ def avg(array):
     average = sum/len(array)
     return average
 
-depthFile = open("Day1/input.txt","r")
+depthFile = open("2021/inputs/day1","r")
 
 #todo: make the variables have sensible names
 depthArray1=[]

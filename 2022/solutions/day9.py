@@ -1,6 +1,6 @@
 #input loaded and ready to go at 13:56:03
 
-with open('inputs/day9') as f:
+with open('2022/inputs/day9') as f:
     input = f.read()
     
 def moveHead(direction, head):
@@ -29,7 +29,6 @@ def moveTail(head, tail):
     
 
 moves=input.split('\n')
-moves.pop(-1)
 moveSplit = []
 for move in moves:
     moveSplit.append(move.split(" "))

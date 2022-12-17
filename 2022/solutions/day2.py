@@ -1,7 +1,7 @@
 myScore = 0
 
 
-with open('inputs/day2') as f:
+with open('2022/inputs/day2') as f:
     input = f.readline()
     while (input != ""):
         if (input.__contains__('X')):

@@ -1,4 +1,4 @@
-report = open("Day3/input.txt","r")
+report = open("2021/inputs/day3","r")
 numbers = report.readlines()
 frequencyOfOne = [0]*(len(numbers[1])-1)
 

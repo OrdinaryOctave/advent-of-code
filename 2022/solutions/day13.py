@@ -24,8 +24,8 @@ def checkPairOrder(left, right):
     return pairOrder(left, right) < 0
 
         
-with open('inputs/day13') as f:
-    input = f.read().rstrip()
+with open('2022/inputs/day13') as f:
+    input = f.read()
 inputPairs = list(map(lambda x: x.split("\n"), input.split("\n\n")))
 pairs = []
 for pair in inputPairs:

@@ -1,4 +1,4 @@
-instructionsFile = open("Day2/input.txt","r")
+instructionsFile = open("2021/inputs/day2","r")
 instructions = instructionsFile.readlines()
 
 hPos = 0

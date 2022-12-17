@@ -51,8 +51,8 @@ def importMonkeys(monkeyString):
         monkeys.append(Monkey(items, op, testOperand, ifTrue, ifFalse))
     return monkeys
     
-with open('inputs/day11') as f:
-    input = f.read().rstrip()
+with open('2022/inputs/day11') as f:
+    input = f.read()
 
 monkeys = importMonkeys(input)
 lcm = 1

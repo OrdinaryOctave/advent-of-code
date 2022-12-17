@@ -28,10 +28,10 @@ def getDirectorySizes(rootDir, sizes):
         sizes = getDirectorySizes(dir, sizes)
     return sizes
 
-with open('inputs/day7') as f:
+with open('2022/inputs/day7') as f:
     root = Directory("/", None)
     currentDirectory = root
-    instruction = f.readline().rstrip("\n")
+    instruction = f.readline()
     
     while instruction != "":
         if instruction.__contains__("cd"):

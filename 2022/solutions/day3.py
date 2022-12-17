@@ -13,7 +13,7 @@ misplacedItems = []
 input = " "
 rucksacks = []
 
-with open('inputs/day3') as f:
+with open('2022/inputs/day3') as f:
     while (input != ""):
         input = f.readline().rstrip()
         rucksacks.append(input)

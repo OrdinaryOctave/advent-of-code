@@ -33,8 +33,8 @@ def findMissingBeacon():
                 if scanRow[i][1] < 4000000:
                     return (scanRow[i][1]+1, row)
 
-with open('inputs/day15') as f:
-    input = f.read().rstrip()
+with open('2022/inputs/day15') as f:
+    input = f.read()
 
 lines = input.split("\n")
 objects = [[[int(coord.split('=')[1]) for coord in obj.split(',')] for obj in line.split(':')] for line in lines]

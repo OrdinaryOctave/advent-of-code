@@ -30,7 +30,7 @@ def findFirstCard(orderCalled, bingoCards):
             if checkSolvedCard(bingoCardMarks[i]):
                 return bingoCards[i], bingoBall
 
-file = open("Day4/input.txt", "r")
+file = open("2021/inputs/day4", "r")
 
 orderCalled = file.readline()
 orderCalled = orderCalled.split(",")

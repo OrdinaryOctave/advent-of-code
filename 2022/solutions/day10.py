@@ -1,10 +1,9 @@
 #input loaded and ready to go at 13:29:01
 
-with open('inputs/day10') as f:
+with open('2022/inputs/day10') as f:
     input = f.read()
 
 instructions = input.split('\n')
-instructions.pop(-1)
 
 cycleCount = 0
 x = 1

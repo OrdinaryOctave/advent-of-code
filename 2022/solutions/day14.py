@@ -79,8 +79,8 @@ def findMaxSandLocations(floor: int, occupied: list):
                     visitLocations.append(move)
     return sandCount
 
-with open('inputs/day14') as f:
-    input = f.read().rstrip()
+with open('2022/inputs/day14') as f:
+    input = f.read()
 
 rocks = list(map(lambda x: list(map(lambda y: tuple(map(lambda z: int(z), y.split(','))), x.split(' -> '))),input.splitlines()))
 
