@@ -28,7 +28,7 @@ try:
         print("Making request for input:")
         r = requests.get(f"https://adventofcode.com/{loadYear}/day/{loadDay}/input", cookies={"session": session_cookie}, headers={"User-Agent": useragent})
         print("Saving input to file:")
-        f.write(r.text)
+        f.write(r.text.rstrip())
 except:
     print("Input file already exists for today, skipping input load")
 
