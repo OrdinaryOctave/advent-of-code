@@ -1,13 +1,18 @@
 import datetime
 import requests
+import sys
 
 cookie_file = "sessionCookie.txt"
 useragent_file = "useragent.txt"
 now = datetime.datetime.now()
 
-# Edit these before running to load previous days/years
 loadDay = now.day
 loadYear = now.year
+
+if len(sys.argv) > 1:
+    loadDay = int(sys.argv[1])
+if len(sys.argv) > 2:
+    loadYear = int(sys.argv[2])
 
 if now.hour<5 and loadDay == now.day:
     loadDay -= 1
