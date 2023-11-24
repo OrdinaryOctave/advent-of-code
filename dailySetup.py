@@ -3,7 +3,7 @@ import requests
 import sys
 
 cookie_file = "sessionCookie.txt"
-useragent_file = "useragent.txt"
+useragent = "https://github.com/OrdinaryOctave/advent-of-code by ordinaryoctave@proton.me"
 now = datetime.datetime.now()
 
 loadDay = now.day
@@ -29,8 +29,6 @@ try:
     with open(inputFilePath, "x") as f:
         with open(cookie_file) as g:
             session_cookie = g.read()
-        with open(useragent_file) as g:
-            useragent = g.read()
         print(f"Making request for {loadYear} day {loadDay} input:")
         r = requests.get(f"https://adventofcode.com/{loadYear}/day/{loadDay}/input", cookies={"session": session_cookie}, headers={"User-Agent": useragent})
         print(f"Saving input to file ({inputFilePath}):")
@@ -39,7 +37,7 @@ except:
     print(f"Input file already exists for {loadYear} day {loadDay}, skipping input load")
 
 now = datetime.datetime.now()
-templateSolution = f"""# input loaded and ready to go at {now.time().strftime('%H:%M:%S')}
+templateSolution = f"""# input loaded at {now.time().strftime('%H:%M:%S')}
 
 with open('{inputFilePath}') as f:
     input = f.read()
