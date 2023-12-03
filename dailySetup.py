@@ -40,7 +40,7 @@ now = datetime.datetime.now()
 templateSolution = f"""# input loaded at {now.time().strftime('%H:%M:%S')}
 
 with open('{inputFilePath}') as f:
-    input = f.read()
+    inputData = f.read()
 
 """
 
