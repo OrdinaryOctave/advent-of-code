@@ -29,10 +29,7 @@ for (x, y), length in parts:
         if not char.isdigit() and char != '.':
             validPart = True
             if char == '*':
-                if (row, col) in gears:
-                    gears[(row, col)].append(partNum)
-                else:
-                    gears[(row, col)] = [partNum]
+                gears.setdefault((row, col), []).append(partNum)
     if validPart:
         validParts.append(partNum)
     
