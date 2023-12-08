@@ -49,7 +49,7 @@ cardValueHex = {'T': 'A', 'J': 'B', 'Q': 'C', 'K': 'D', 'A': 'E'}
 handStrings = [hand.split() for hand in inputData.split("\n")]
 
 for part in range(2):
-    hands = [[[int(cardValueHex.get(card, card), 16) for card in hand], int(bid)] for (hand, bid) in handStrings]
+    hands = [([int(cardValueHex.get(card, card), 16) for card in hand], int(bid)) for (hand, bid) in handStrings]
     sortedHands = []
     for i, handEntry in enumerate(hands):
         j = 0
