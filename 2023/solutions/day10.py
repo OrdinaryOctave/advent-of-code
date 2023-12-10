@@ -26,39 +26,19 @@ while checkLocation != startLocation:
     x, y = checkLocation
     loopElements[checkLocation] = pipeGrid[x][y]
     pipeSegment = pipeGrid[x][y]
-    
     match pipeSegment:
         case '|':
-            if (x-1, y) != prevLocation:
-                checkLocation = (x-1, y)
-            else:
-                checkLocation = (x+1, y)
+            checkLocation = (x-1, y) if (x-1, y) != prevLocation else (x+1, y)
         case '-':
-            if (x, y-1) != prevLocation:
-                checkLocation = (x, y-1)
-            else:
-                checkLocation = (x, y+1)
+            checkLocation = (x, y-1) if (x, y-1) != prevLocation else (x, y+1)    
         case 'L':
-            if (x-1, y) != prevLocation:
-                checkLocation = (x-1, y)
-            else:
-                checkLocation = (x, y+1)
+            checkLocation = (x-1, y) if (x-1, y) != prevLocation else (x, y+1)
         case 'J':
-            if (x-1, y) != prevLocation:
-                checkLocation = (x-1, y)
-            else:
-                checkLocation = (x, y-1)
+            checkLocation = (x-1, y) if (x-1, y) != prevLocation else (x, y-1)
         case '7':
-            if (x+1, y) != prevLocation:
-                checkLocation = (x+1, y)
-            else:
-                checkLocation = (x, y-1)
+            checkLocation = (x+1, y) if (x+1, y) != prevLocation else (x, y-1)
         case 'F':
-            if (x+1, y) != prevLocation:
-                checkLocation = (x+1, y)
-            else:
-                checkLocation = (x, y+1)
-    
+            checkLocation = (x+1, y) if (x+1, y) != prevLocation else (x, y+1)
     prevLocation = (x, y)
 
 print(len(loopElements)//2)
