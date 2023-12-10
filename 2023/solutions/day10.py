@@ -8,9 +8,9 @@ pipeGrid = inputData.split("\n")
 for x, row in enumerate(pipeGrid):
     if 'S' in row:
         startLocation = (x, row.find('S'))
-
+        break
 loopElements = {startLocation: 'S'}
-checkLocation = []
+
 x, y = startLocation
 if pipeGrid[x][y+1] in ['-', 'J', '7']:
     checkLocation = (x, y+1)
