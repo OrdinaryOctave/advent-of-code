@@ -2,7 +2,7 @@
 
 with open('2023/inputs/day16') as f:
     inputData = f.read()
-    
+
 objects = {}
 for y, line in enumerate(inputData.split("\n")):
     for x, char in enumerate(line):
@@ -11,9 +11,6 @@ for y, line in enumerate(inputData.split("\n")):
 maxX = len(inputData.split("\n")[0])
 maxY = len(inputData.split("\n"))
 
-# energizedTiles = {}
-# beams = [(0, 0, 'R')]
-# existingBeams = {}
 def findEnergizedTiles(startLocation):
     beams = [startLocation]
     existingBeams = {}
