@@ -14,7 +14,7 @@ if len(sys.argv) > 1:
 if len(sys.argv) > 2:
     loadYear = int(sys.argv[2])
 
-if now.hour<5 and loadDay == now.day:
+if now.hour<5 and loadDay == now.day and loadYear == now.year:
     loadDay -= 1
     print("Not 5am yet, loading previous day's challenge")
 
