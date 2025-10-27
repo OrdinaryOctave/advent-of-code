@@ -8,13 +8,16 @@ now = datetime.datetime.now()
 
 loadDay = now.day
 loadYear = now.year
+setDay, setYear = False, False
 
 if len(sys.argv) > 1:
     loadDay = int(sys.argv[1])
+    setDay = True
 if len(sys.argv) > 2:
     loadYear = int(sys.argv[2])
+    setYear = True
 
-if now.hour<5 and loadDay == now.day and loadYear == now.year:
+if not setDay and now.hour<5:
     loadDay -= 1
     print("Not 5am yet, loading previous day's challenge")
 
